@@ -42,7 +42,7 @@ const imgBackground = computed(() => {
   }
 })
 
-onMounted(() => {
+onMounted(async () => {
   window.onresize = () => {
     image.height = calculateImageHeight(window.innerWidth)
   }

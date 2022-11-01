@@ -8,7 +8,7 @@ defineProps({
 
 const router = useRouter()
 const content = ref<HTMLDivElement>()
-onMounted(() => {
+onMounted(async () => {
   const navigate = () => {
     if (location.hash) {
       document.querySelector(decodeURIComponent(location.hash))
@@ -53,7 +53,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <header-image :url="frontmatter.header_img" />
+  <client-only>
+    <header-image :url="frontmatter.header_img" />
+  </client-only>
   <div class="container max-w-screen-xl my-20">
     <div class="flex flex-wrap">
       <div class="w-full px-4 sm:px-6 lg:px-8 mb-10">
